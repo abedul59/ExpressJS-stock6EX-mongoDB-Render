@@ -10,7 +10,11 @@ mongoose.connect(mongoURI, {
   useUnifiedTopology: true,
   ssl: true,
 
+  tlsAllowInvalidCertificates: true, // Allow invalid certificates for testing purposes
+  tlsAllowInvalidHostnames: true, // Allow connection to servers with invalid hostnames
+  minTLSVersion: 'TLSv1.2' // Minimum TLS version supported
 });
+
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {
