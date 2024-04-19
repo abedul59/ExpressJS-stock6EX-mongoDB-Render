@@ -9,7 +9,7 @@ mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   ssl: true,
-  tlsCAFile: './node_modules/mongodb-cert.pem' // Path to your MongoDB PEM certificate
+
 });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
