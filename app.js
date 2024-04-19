@@ -5,15 +5,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongoURI = process.env.MONGODB_URI;
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: true,
+try {
+  mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true}, () =>
+  console.log("connected"));    
+  }catch (error) { 
+  console.log("could not connect");    
+  }
 
-  tlsAllowInvalidCertificates: true, // Allow invalid certificates for testing purposes
-  tlsAllowInvalidHostnames: true, // Allow connection to servers with invalid hostnames
-  minTLSVersion: 'TLSv1.2' // Minimum TLS version supported
-});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
