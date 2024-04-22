@@ -400,9 +400,9 @@ const s6r202403Schema = new mongoose.Schema({
   cf10: String,
 });
 
-const Todo = mongoose.model('todo', todoSchema);
+const Todo = mongoose.model('Todo', todoSchema);
 
-const S6R202403 = mongoose.model('s6r202403', s6r202403Schema);
+const S6r202403 = mongoose.model('S6r202403', s6r202403Schema);
 
 app.get('/todos', (req, res) => {
   res.send(data);
