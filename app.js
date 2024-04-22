@@ -79,7 +79,7 @@ async function connectMongoDB () {
 
 connectMongoDB()
 
-const data = [];
+//const data = [];
 
 app.use(express.json());
 
@@ -407,9 +407,14 @@ const S6r202403 = mongoose.model('S6r202403', s6r202403Schema);
 app.get('/todos', (req, res) => {
   res.send(data);
 });
-app.get('/s6r202403', (req, res) => {
-  res.send(data);
-});
 
+//app.get('/s6r202403', (req, res) => {
+  //res.send(data);
+//});
+
+app.get('/s6r202403', errorHandler(async (req, res, next) => {
+  const documents = await S6r202403.find({ cStockID: "1101" });
+  res.send(documents);
+}));
 
 app.listen(3000)
