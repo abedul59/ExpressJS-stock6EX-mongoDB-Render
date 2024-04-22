@@ -412,9 +412,12 @@ app.get('/todos', (req, res) => {
   //res.send(data);
 //});
 
-app.get('/s6r202403', errorHandler(async (req, res, next) => {
-  const documents = await S6r202403.find({ cStockID: "1101" });
-  res.send(documents);
-}));
+app.get('/s6r202403', async (req, res) => {
+  const s6r202403 = await S6r202403.find();
+  res.send({
+    status: true,
+    data: s6r202403,
+  });
+});
 
 app.listen(3000)
