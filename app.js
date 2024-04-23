@@ -1,7 +1,9 @@
+import cors from 'cors';
+
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-
+app.use(cors());
 
 let connectStatus = false;
 
@@ -198,7 +200,6 @@ app.get('/s6r202403/1101', async (req, res) => {
     data: documents,
   });
 });
-
 
 
 app.get('/s6r202403/:cStockID', async (req, res) => {
