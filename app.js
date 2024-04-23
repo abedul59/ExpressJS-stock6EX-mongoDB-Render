@@ -1,5 +1,5 @@
-import cors from 'cors';
-
+//import cors from 'cors';
+const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
