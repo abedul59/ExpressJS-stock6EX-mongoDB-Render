@@ -191,10 +191,14 @@ app.get('/s6r202403', async (req, res) => {
   });
 });
 
-app.get('/s6r202403/1101', errorHandler(async (req, res, next) => {
-    const documents = await S6r202403.findOne({ cStockID: '1101' }).exec();
-    res.send(documents);
-}));
+app.get('/s6r202403/1101', async (req, res) => {
+  const documents = await S6r202403.findOne({ cStockID: '1101' }).exec();
+  res.send({
+    status: true,
+    data: documents,
+  });
+});
+
 
 
 app.listen(3000)
