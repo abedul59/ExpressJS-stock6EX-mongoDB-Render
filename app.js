@@ -199,8 +199,10 @@ app.get('/s6r202403/1101', async (req, res) => {
   });
 });
 
+
+
 app.get('/s6r202403/:cStockID', async (req, res) => {
-  const documents = await S6r202403.findOne({ cStockID: cStockID }).exec();
+  const documents = await S6r202403.findOne({ cStockID: req.params.cStockID }).exec();
   res.send({
     status: true,
     data: documents,
